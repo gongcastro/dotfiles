@@ -50,7 +50,7 @@
 }
 
 .ace_marker-layer .ace_selection {
-  background: #343442;
+  background: #252530;
 }
 
 .ace_marker-layer .ace_step {
@@ -73,13 +73,13 @@
 .ace_marker-layer .ace_foreign_line {
   position: absolute;
   z-index: -1;
-  background-color: #343442;
+  background-color: #1a1c23;
 }
 
 .ace_marker-layer .ace_active_debug_line {
   position: absolute;
   z-index: -1;
-  background-color: ##63637d;
+  background-color: #343442;
 }
 
 .ace_marker-layer .ace_find_line {
@@ -139,7 +139,7 @@
 }
 
 .ace_support.ace_function {
-  color: #b877db;
+  color: #f09383;
 }
 
 .ace_support.ace_constant {
