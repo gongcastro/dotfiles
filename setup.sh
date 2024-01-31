@@ -1,5 +1,6 @@
 #!/bin/bash
 
+function setup() {
 sudo apt-get update
 sudo apt-get upgrade
 
@@ -67,24 +68,30 @@ sudo chmod a+r /etc/apt/keyrings/docker.asc
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
- sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+	sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+	sudo apt-get update
+	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
  
-# Zotero
-sudo snap install zotero-snap -y
+	# Zotero
+	sudo snap install zotero-snap -y
 
-# Julia 
-curl -fsSL https://install.julialang.org | sh
+	# Julia 
+	curl -fsSL https://install.julialang.org | sh
 
-# MySQL
-sudo apt install mysql-server -y
+	# MySQL
+	sudo apt install mysql-server -y
+	
+	# Quarto
+	sudo curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb
+	sudo apt-get install gdebi-core -y
+	sudo gdebi quarto-linux-amd64.deb
+	/usr/local/bin/quarto check
 
-# Zoom
-wget -O $HOME/Downloads/package-signing-key.pub https://zoom.us/linux/download/pubkey?version=5-12-6
-gpg --show-keys $HOME/Downloads/package-signing-key.pub
-sudo gpg --import $HOME/Downloads/package-signing-key.pub
-wget -O $HOME/Downloads/https://zoom.us/client/latest/zoom_amd64.deb
-sudo apt install $HOME/Downloads/zoom_amd64.deb -y
+	# Zoom
+	wget -O $HOME/Downloads/package-signing-key.pub https://zoom.us/linux/download/pubkey?version=5-12-6
+	gpg --show-keys $HOME/Downloads/package-signing-key.pub
+	sudo gpg --import $HOME/Downloads/package-signing-key.pub
+	wget -O $HOME/Downloads/https://zoom.us/client/latest/zoom_amd64.deb
+	sudo apt install $HOME/Downloads/zoom_amd64.deb -y
 
-
+}
