@@ -7,13 +7,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: "🖥️ Dowloading setup.sh script"
-      run: wget -O ${GITHUB_WORKSPACE}/setup.sh https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
-    - run: cat ${GITHUB_WORKSPACE}/setup.sh
+      run: wget -O ./setup.sh https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
+    - run: cat ./setup.sh
     - name: "🚀 Running setup.sh script"
-      run: |
-        chmod +x ${GITHUB_WORKSPACE}/setup.sh
-        ${GITHUB_WORKSPACE}/setup.sh
       shell: bash
+      run: |
+        chmod +x setup.sh
+        ./setup.sh
+
     - run: echo "🎉 This job's status is ${{ job.status }}."
 
 
