@@ -1,0 +1,14 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🖥️ Running by a ${{ github.event_name }} event."
+      - run: echo "🚀 Running setup.sh on a ${{ runner.os }} server hosted by GitHub"
+      - run: wget -O - https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
+      - run: echo "🎉 This job's status is ${{ job.status }}."
+
+
+
