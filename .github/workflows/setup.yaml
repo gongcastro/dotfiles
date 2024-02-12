@@ -4,11 +4,15 @@ on: [push]
 jobs:
   setup:
     runs-on: ubuntu-latest
+    - uses: actions/checkout@v2
     steps:
       - name: "🖥️ Dowloading setup.sh script"
         run: wget -O ${GITHUB_WORKSPACE}/setup.sh https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
       - name: "🚀 Running setup.sh script"
-        run: bash ${GITHUB_WORKSPACE}/setup.sh
+        run: |
+          chmod +x ${GITHUB_WORKSPACE}/setup.sh
+          ${GITHUB_WORKSPACE}/setup.sh
+        shell: bash
       - run: echo "🎉 This job's status is ${{ job.status }}."
 
 
