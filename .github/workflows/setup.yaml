@@ -11,7 +11,7 @@ jobs:
     - run: cat ./setup.sh
     - name: "🚀 Running setup.sh script"
       run: |
-        chmod +x setup.sh
+        chmod +x ./setup.sh
         bash ./setup.sh
       shell: bash
     - run: echo "🎉 This job's status is ${{ job.status }}."
