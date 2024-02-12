@@ -15,14 +15,29 @@ git config --global user.email gongarciacastro@gmail.com
 sudo add-apt-repository universe
 sudo apt install gnome-tweaks -y
  
+# prepare home files
+if [! -f ~/.bash_aliases ]; then touch ~/.bash_aliases; fi
+echo 'if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi' >> ~/.bashrc 
+if [! -d "$HOME/bin" ]; then
+  mkdir $HOME/bin
+fi
+wget -O $HOME/bin/fix_bluetooth.sh https://raw.githubusercontent.com/gongcastro/setup/main/scripts/fix_bluetooh.sh
+wget -O $HOME/bin/connect_pi.sh https://raw.githubusercontent.com/gongcastro/setup/main/scripts/connect_pi.sh
+
 # homebrew
 sudo apt-get install build-essential procps curl file -y
 test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 
-# deps
+# system deps
 sudo apt install libcanberra-gtk-module libcanberra-gtk3-module wget -y
+
+# Python
+sudo apt-get update
+sudo apt install python3
+python3 --version
+echo 'alias python="python3"' >> ~/.bash_aliases
 
 # R
 sudo apt update -qq
@@ -32,6 +47,11 @@ sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_
 sudo apt install --no-install-recommends r-base -y
 sudo add-apt-repository ppa:c2d4u.team/c2d4u4.0+ -y
 
+# setup radian and vs-code features
+Rscript -e 'remotes::install_github("nx10/httpgd")'
+Rscript -e 'remotes::install_github("r-lib/lintr")'
+pip install --user radian
+echo 'alias r="/home/gongcastro/.local/bin/radian"' >> ~/.bash_aliases
 
 # oh my posh
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
@@ -47,7 +67,6 @@ echo 'eval "$(oh-my-posh init bash --config $HOME/.poshthemes/gongcastro.omp.jso
 # nvim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
-
 
 # Praat
 sudo apt-get install praat -y
