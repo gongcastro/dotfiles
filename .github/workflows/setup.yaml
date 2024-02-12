@@ -10,11 +10,10 @@ jobs:
       run: wget -O ./setup.sh https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
     - run: cat ./setup.sh
     - name: "🚀 Running setup.sh script"
-      shell: bash
       run: |
         chmod +x setup.sh
-        ./setup.sh
-
+        bash ./setup.sh
+      shell: bash
     - run: echo "🎉 This job's status is ${{ job.status }}."
 
 
