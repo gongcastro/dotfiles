@@ -8,7 +8,7 @@ jobs:
       - name: "🖥️ Dowloading setup.sh script"
         run: wget -O - https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
       - name: "🚀 Running setup.sh script"
-      	run: source $HOME/setup.sh
+      	run: bash ${GITHUB_WORKSPACE}/$HOME/setup.sh
       - run: echo "🎉 This job's status is ${{ job.status }}."
 
 
