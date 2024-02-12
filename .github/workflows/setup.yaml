@@ -5,9 +5,10 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🖥️ Running by a ${{ github.event_name }} event."
-      - run: echo "🚀 Running setup.sh on a ${{ runner.os }} server hosted by GitHub"
-      - run: wget -O - https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
+      - name: "🖥️ Dowloading setup.sh script"
+        run: wget -O - https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
+      - name: "🚀 Running setup.sh script"
+      	run: source setup.sh
       - run: echo "🎉 This job's status is ${{ job.status }}."
 
 
