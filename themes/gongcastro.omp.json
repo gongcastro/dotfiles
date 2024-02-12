@@ -6,7 +6,7 @@
         "newline": false,
         "segments": [
           {
-            "foreground": "#878787",
+            "foreground": "green",
             "properties": {
               "style": "folder"
             },
@@ -33,7 +33,8 @@
             "type": "git"
           }
         ],
-        "type": "prompt"
+        "type": "prompt",
+        "newline": true
       },
       {
         "alignment": "right",
@@ -43,51 +44,36 @@
             "style": "plain",
             "foreground": "green",
             "foreground_templates": [
-              "{{ if gt .Code 0 }}#07a9fa{{ end }}"
+              "{{ if gt .Code 0 }}green{{ end }}"
             ],
             "template": " x{{ reason .Code }}"
-          },
-          {
-            "foreground": "#07a9fa",
-            "foreground_templates": [
-              "{{ if gt .Code 0 }}#07a9fa{{ end }}"
-            ],
-            "properties": {
-              "style": "roundrock",
-              "always_enabled": true
-            },
-            "style": "diamond",
-            "template": " {{ .FormattedMs }} ",
-            "type": "executiontime"
           }
         ],
         "type": "prompt"
       },
       {
         "alignment": "left",
-        "newline": false,
+        "newline": true,
         "segments": [
           {
   	    "type": "python",
   	    "style": "plain",
   	    "foreground": "#306998",
-  	    "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}({{ .Venv }}) {{ end }}{{ .Major }}.{{ .Minor }}{{ end }} "
+  	    "template": "Python {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}({{ .Venv }}){{ end }}{{ end }} "
 	  },
 	  {
   	    "type": "julia",
   	    "style": "plain",
-  	    "foreground": "#ffffff",
-  	    "background": "#4063D8",
-  	    "template": "  {{ .Full }} "
+  	    "foreground": "#9558B2",
+  	    "template": "  Julia "
           },
           {
   	    "type": "r",
   	    "style": "plain",
-
+	    "newline": true,
   	    "foreground": "blue",
-            "background": "lightWhite",
-            "template": " R {{ .Full }} "
-	  }
+            "template": " R "
+	  },
           {
             "foreground": "green",
             "style": "plain",
@@ -95,7 +81,6 @@
             "type": "root"
           },
           {
-
             "style": "plain",
             "template": "\u276f",
             "type": "text"
