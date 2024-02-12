@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "🖥️ Dowloading setup.sh script"
-        run: wget -O - https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
+        run: wget -O $HOME/setup.sh https://raw.githubusercontent.com/gongcastro/setup/main/setup.sh | bash
       - name: "🚀 Running setup.sh script"
       	run: bash ${GITHUB_WORKSPACE}/$HOME/setup.sh
       - run: echo "🎉 This job's status is ${{ job.status }}."
