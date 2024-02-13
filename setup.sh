@@ -22,7 +22,7 @@ test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/bre
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 
 # deps
-sudo apt install libcanberra-gtk-module libcanberra-gtk3-module wget -y
+sudo apt install libcanberra-gtk-module libcanberra-gtk3-module wget make g++ -y
 
 # R
 sudo apt update -qq
@@ -93,5 +93,21 @@ echo \
 	sudo gpg --import $HOME/Downloads/package-signing-key.pub
 	wget -O $HOME/Downloads/https://zoom.us/client/latest/zoom_amd64.deb
 	sudo apt install $HOME/Downloads/zoom_amd64.deb -y
+	
+	# espeak
+	sudo apt-get install espeak-ng -y
+	
+	# cmdstan
+	g++ --version
+	make --version
+	git clone https://github.com/stan-dev/cmdstan.git $HOME/.cmdstan --recursive
+	cd $HOME/.cmdstan
+	make build  
+	make examples/bernoulli/bernoulli
+	./examples/bernoulli/bernoulli sample data file=examples/bernoulli/bernoulli.data.json
+	ls -l output.csv
+
+	# update
+	sudo apt-get update
 
 }
