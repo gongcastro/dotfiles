@@ -46,6 +46,8 @@ sudo apt install --no-install-recommends r-base -y
 sudo add-apt-repository ppa:c2d4u.team/c2d4u4.0+ -y
 
 # setup radian and vs-code features
+Rscript -e 'install.package("remotes")'
+Rscript -e 'install.package("devtools")'
 Rscript -e 'remotes::install_github("nx10/httpgd")'
 Rscript -e 'remotes::install_github("r-lib/lintr")'
 pip install --user radian
