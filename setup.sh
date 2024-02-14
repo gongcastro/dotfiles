@@ -19,9 +19,9 @@ setup() {
 
     if [[ $1 = "home" ]]; then
         echo "Preparing home files and custom scripts"
-        if [[! -f ~/.bash_aliases ]]; then touch ~/.bash_aliases; fi
+        if [[ ! -f ~/.bash_aliases ]]; then touch ~/.bash_aliases; fi
         echo 'if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi' >>~/.bashrc
-        if [[! -d "$HOME/bin" ]]; then
+        if [[ ! -d "$HOME/bin" ]]; then
             mkdir $HOME/bin
         fi
         wget -O $HOME/bin/fix_bluetooth.sh https://raw.githubusercontent.com/gongcastro/setup/main/scripts/fix_bluetooh.sh
