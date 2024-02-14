@@ -12,10 +12,12 @@ jobs:
     - name: "🚀 Running setup.sh script"
       run: |
         chmod +x ./setup.sh
-        ./setup.sh
+        source ./setup.sh
       shell: bash
     - name: "Installing Git"
-      run: setup git
+      run: |
+        source ./setup.sh
+        setup git
       shell: bash
     - run: echo "🎉 This job's status is ${{ job.status }}."
 
