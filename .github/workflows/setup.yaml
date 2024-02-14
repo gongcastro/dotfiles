@@ -12,7 +12,7 @@ jobs:
     - name: "🚀 Running setup.sh script"
       run: |
         chmod +x ./setup.sh
-        bash ./setup.sh
+        source ./setup.sh
       shell: bash
     - name: "Installing Git"
       run: setup git
