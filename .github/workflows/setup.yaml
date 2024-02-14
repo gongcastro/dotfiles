@@ -19,6 +19,71 @@ jobs:
         source ./setup.sh
         setup git
       shell: bash
+    - name: "Installing system dependencies"
+      run: |
+        source ./setup.sh
+        setup git
+      shell: bash
+    - name: "Setting up $HOME"
+      run: |
+        source ./setup.sh
+        setup home
+      shell: bash
+    - name: "Setting up Homebrew"
+      run: |
+        source ./setup.sh
+        setup brew
+      shell: bash 
+    - name: "Setting up Python"
+      run: |
+        source ./setup.sh
+        setup python
+      shell: bash 
+    - name: "Setting up R"
+      run: |
+        source ./setup.sh
+        setup r
+      shell: bash     
+    - name: "Setting up Oh My Posh"
+      run: |
+        source ./setup.sh
+        setup posh
+      shell: bash 
+    - name: "Setting up NeoVim"
+      run: |
+        source ./setup.sh
+        setup nvim
+      shell: bash 
+    - name: "Setting up utils"
+      run: |
+        source ./setup.sh
+        setup utils
+      shell: bash 
+    - name: "Setting up Docker"
+      run: |
+        source ./setup.sh
+        setup docker
+      shell: bash 
+    - name: "Setting up Julia"
+      run: |
+        source ./setup.sh
+        setup julia
+      shell: bash
+    - name: "Setting up MySQL"
+      run: |
+        source ./setup.sh
+        setup sql
+      shell: bash
+    - name: "Setting up Quarto"
+      run: |
+        source ./setup.sh
+        setup quarto
+      shell: bash
+    - name: "Setting up Zoom"
+      run: |
+        source ./setup.sh
+        setup zoom
+      shell: bash
     - run: echo "🎉 This job's status is ${{ job.status }}."
 
 
