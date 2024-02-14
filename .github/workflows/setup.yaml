@@ -14,6 +14,8 @@ jobs:
         chmod +x ./setup.sh
         bash ./setup.sh
       shell: bash
+    - name: "Installing Git"
+      run: setup git
     - run: echo "🎉 This job's status is ${{ job.status }}."
 
 
