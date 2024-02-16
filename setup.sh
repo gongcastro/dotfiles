@@ -55,8 +55,10 @@ setup() {
 
         echo "Installing radian, R linters, and R packages"
         # setup radian and vs-code features
-        Rscript -e 'user_lib <- Sys.getenv("R_LIBS_USER"); message("user_lib = ", user_lib); install.packages("remotes", lib = user_lib)'
-        Rscript -e 'user_lib <- Sys.getenv("R_LIBS_USER"); message("user_lib = ", user_lib); install.packages("devtools", lib = user_lib)'
+        mkdir "/home/gongcastro/R"
+        Rscript -e '.libPaths("/home/gongcastro/R")'
+        Rscript -e '.libPaths("/home/gongcastro/R"); install.packages("remotes", lib = user_lib)'
+        Rscript -e '.libPaths("/home/gongcastro/R"); install.packages("devtools", lib = user_lib)'
         Rscript -e 'remotes::install_github("nx10/httpgd")'
         Rscript -e 'remotes::install_github("r-lib/lintr")'
         pip install --user radian
