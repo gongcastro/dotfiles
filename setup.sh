@@ -46,7 +46,6 @@ setup() {
 
     if [[ $1 = "r" ]]; then
         echo "Installing R"
-        sudo usermod -a -G staff $USERNAME
         sudo apt update -qq
         sudo apt install --no-install-recommends software-properties-common dirmngr -y
         wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
@@ -56,7 +55,6 @@ setup() {
 
         echo "Installing radian, R linters, and R packages"
         # setup radian and vs-code features
-        mkdir "/home/gongcastro/R"
         Rscript -e 'install.packages(c("devtools"))'
         Rscript -e 'remotes::install_github("nx10/httpgd")'
         Rscript -e 'remotes::install_github("r-lib/lintr")'
