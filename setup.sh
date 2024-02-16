@@ -24,7 +24,7 @@ setup() {
         if [[ ! -d "$HOME/bin" ]]; then
             mkdir $HOME/bin
         fi
-        wget -O $HOME/bin/fix_bluetooth.sh https://raw.githubusercontent.com/gongcastro/setup/main/scripts/fix_bluetooh.sh
+        wget -O $HOME/bin/fix_bluetooth.sh https://raw.githubusercontent.com/gongcastro/setup/main/scripts/fix_bluetooth.sh
         wget -O $HOME/bin/connect_pi.sh https://raw.githubusercontent.com/gongcastro/setup/main/scripts/connect_pi.sh
     fi
 
@@ -37,11 +37,11 @@ setup() {
     fi
 
     if [[ $1 = "python" ]]; then
-        echo "Installing homebrew"
-        sudo apt-get install build-essential procps curl file -y
-        test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-        test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.bashrc
+        sudo apt-get update
+        sudo apt install python3
+        python3 --version
+        echo 'alias python="python3"' >> ~/.bash_aliases
+
     fi
 
     if [[ $1 = "r" ]]; then
