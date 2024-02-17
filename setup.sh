@@ -14,7 +14,20 @@ setup() {
     if [[ $1 = "deps" ]]; then
         echo "Installing system dependencies"
         sudo add-apt-repository universe
-        sudo apt install libcanberra-gtk-module libcanberra-gtk3-module wget make g++ gnome-tweaks -y
+        sudo apt-get install -y wget cmake make g++ gnome-tweaks conky \
+            libcanberra-gtk-module \
+            libcanberra-gtk3-module \
+            libimlib2-dev \
+            libncurses5-dev \
+            libx11-dev \
+            libxdamage-dev \
+            libxft-dev \
+            libxinerama-dev \
+            libxml2-dev \
+            libxext-dev \
+            libcurl4-openssl-dev \
+            liblua5.3-dev \
+            nvidia-settings
     fi
 
     if [[ $1 = "home" ]]; then
@@ -40,7 +53,7 @@ setup() {
         sudo apt-get update
         sudo apt install python3
         python3 --version
-        echo 'alias python="python3"' >> ~/.bash_aliases
+        echo 'alias python="python3"' >>~/.bash_aliases
 
     fi
 
@@ -73,6 +86,11 @@ setup() {
         rm $HOME/.poshthemes/themes.zip
         wget -O $HOME/.poshthemes/gongcastro.omp.json https://raw.githubusercontent.com/gongcastro/setup/main/themes/gongcastro.omp.json
         echo 'eval "$(oh-my-posh init bash --config $HOME/.poshthemes/gongcastro.omp.json)"' >>$HOME/.bashrc
+    fi
+
+    if [[ $1 = "conky" ]]; then
+        sudo apt-get install -y conky-all
+        wget -O $HOME/.conkyrc https://raw.githubusercontent.com/gongcastro/setup/main/themes/.conkyrc
     fi
 
     if [[ $1 = "nvim" ]]; then

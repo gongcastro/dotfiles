@@ -48,6 +48,10 @@ jobs:
       run: |
         source ./setup.sh
         setup posh
+    - name: "Setting up Conky"
+      run: |
+        source ./setup.sh
+        setup conky
       shell: bash 
     - name: "Setting up NeoVim"
       run: |
