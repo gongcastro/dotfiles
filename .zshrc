@@ -105,6 +105,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
 # aliases
 if [ -f $HOME/.zsh_aliases ]; then
     . $HOME/.zsh_aliases
