@@ -51,6 +51,7 @@ ln -sf "$DOTFILES/.bash_profile" "$HOME"/.bash_profile
 ln -sf "$DOTFILES/.bash_aliases" "$HOME"/.bash_aliases
 ln -sf "$DOTFILES/.bashrc" "$HOME"/.bashrc
 ln -sf "$DOTFILES/.zshrc" "$HOME"/.zshrc
+ln -sf "$DOTFILES/.vimrc" "$HOME"/.vimrc
 ln -sf "$DOTFILES/.zsh_aliases" "$HOME"/.zsh_aliases
 ln -sf "$DOTFILES/.tmux.conf" "$HOME"/.tmux.conf
 ln -sf "$DOTFILES/nvim" "$XDG_CONFIG_HOME"/nvim

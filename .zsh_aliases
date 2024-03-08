@@ -1,6 +1,7 @@
 alias python="python3"
 alias r="/home/gongcastro/.local/bin/radian"
 
+alias wreboot="sudo grub-reboot 2 && reboot"
 alias v=nvim
 alias vim=nvim
 
