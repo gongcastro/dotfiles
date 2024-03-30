@@ -59,6 +59,8 @@ precmd() {
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
@@ -111,3 +113,5 @@ source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 if [ -f $HOME/.zsh_aliases ]; then
     . $HOME/.zsh_aliases
 fi
+
+

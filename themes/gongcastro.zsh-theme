@@ -33,8 +33,8 @@ prompt_indicator() {
 }
 
 setopt prompt_subst
-zstyle ':vcs_info:git*' formats "%{$FG[013]%}%b%{$reset_color%}%m%u%c%{$reset_color%} "
-PROMPT='%B$(username) $(directory) | ${vcs_info_msg_0_}
+zstyle ':vcs_info:git*' formats "| %{$FG[013]%}%b%{$reset_color%}%m%u%c%{$reset_color%} "
+PROMPT='%B$(username) $(directory) ${vcs_info_msg_0_}
 $(prompt_indicator) '
 RPROMPT='$(current_time)$(return_status)'
 
